@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RecyclerTask</string>
+    <string name="add_number">number</string>
+    <string name="add_image">image</string>
+</resources>
