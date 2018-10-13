@@ -13,14 +13,30 @@ import android.view.ViewGroup;
 import com.example.avdey.recyclertask.mock.AdapterMocks;
 import com.example.avdey.recyclertask.mock.GeneratorImage;
 import com.example.avdey.recyclertask.mock.GeneratorNumber;
+import com.example.avdey.recyclertask.mock.Mock;
+
+import java.util.ArrayList;
 
 public class RecyclerFragment extends Fragment {
 
     private RecyclerView recycler;
-    private final AdapterMocks adapterMocks = new AdapterMocks();
+
 
     public static RecyclerFragment newInstance() {
         return new RecyclerFragment();
+    }
+
+
+    private ArrayList<Object> getSampleArrayList() {
+        ArrayList<Object> items = new ArrayList<>();
+        items.add(new Mock("One", 1));
+        items.add(new Mock("Two", 2));
+        items.add(new Mock("Three", 3));
+        items.add(R.drawable.first);
+        items.add(R.drawable.second);
+        items.add(R.drawable.thrid);
+
+        return items;
     }
 
 
@@ -39,8 +55,10 @@ public class RecyclerFragment extends Fragment {
     public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recycler.setAdapter(adapterMocks);
+        recycler.setAdapter(new AdapterMocks(getSampleArrayList()));
 
     }
+
+
 
 }

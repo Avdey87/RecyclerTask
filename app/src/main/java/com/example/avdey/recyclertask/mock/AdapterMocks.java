@@ -24,6 +24,7 @@ public class AdapterMocks extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.items = items;
     }
 
+
     @Override
     public int getItemCount() {
         return this.items.size();
