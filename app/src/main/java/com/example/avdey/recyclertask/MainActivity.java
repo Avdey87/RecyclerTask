@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.avdey.recyclertask.mock.AdapterMocks;
+import com.example.avdey.recyclertask.mock.ImageMock;
+import com.example.avdey.recyclertask.mock.Mock;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,13 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        Mock mock = new Mock("Number",87);
         switch (item.getItemId()) {
             case R.id.add_number:
-
+                RecyclerFragment.addNumber(mock);
+                getSupportFragmentManager().findFragmentByTag("Test");
                 Toast.makeText(this, "Add Number", Toast.LENGTH_LONG).show();
                 break;
             case R.id.add_image:
+
                 Toast.makeText(this, "Add image", Toast.LENGTH_LONG).show();
                 break;
             default:

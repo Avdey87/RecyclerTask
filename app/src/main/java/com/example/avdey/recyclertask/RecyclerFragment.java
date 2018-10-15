@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.avdey.recyclertask.mock.AdapterMocks;
 import com.example.avdey.recyclertask.mock.GeneratorImage;
 import com.example.avdey.recyclertask.mock.GeneratorNumber;
+import com.example.avdey.recyclertask.mock.ImageMock;
 import com.example.avdey.recyclertask.mock.Mock;
 
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class RecyclerFragment extends Fragment {
 
     private RecyclerView recycler;
-
+    private static ArrayList<Object> items = new ArrayList<>();
 
     public static RecyclerFragment newInstance() {
         return new RecyclerFragment();
@@ -28,7 +30,7 @@ public class RecyclerFragment extends Fragment {
 
 
     private ArrayList<Object> getSampleArrayList() {
-        ArrayList<Object> items = new ArrayList<>();
+
         items.add(new Mock("One", 1));
         items.add(R.drawable.first);
 
@@ -38,24 +40,40 @@ public class RecyclerFragment extends Fragment {
 
 
     @Override
-    public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.recicler_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated( View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         recycler = view.findViewById(R.id.recycler);
     }
 
     @Override
-    public void onActivityCreated( Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycler.setAdapter(new AdapterMocks(getSampleArrayList()));
 
     }
 
+    public static void addNumber(Mock mock) {
+        items.add(new Mock("New number: ", 100));
 
+    }
 
+    public static void addImage(ImageMock imageMock) {
+        items.add(R.drawable.thrid);
+    }
+
+    public static void delNumber(View position) {
+        items.remove(position);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }
