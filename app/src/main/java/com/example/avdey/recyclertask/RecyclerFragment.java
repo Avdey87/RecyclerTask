@@ -30,11 +30,8 @@ public class RecyclerFragment extends Fragment {
     private ArrayList<Object> getSampleArrayList() {
         ArrayList<Object> items = new ArrayList<>();
         items.add(new Mock("One", 1));
-        items.add(new Mock("Two", 2));
-        items.add(new Mock("Three", 3));
         items.add(R.drawable.first);
-        items.add(R.drawable.second);
-        items.add(R.drawable.thrid);
+
 
         return items;
     }

@@ -7,6 +7,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.avdey.recyclertask.mock.AdapterMocks;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

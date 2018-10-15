@@ -1,6 +1,7 @@
 package com.example.avdey.recyclertask.mock;
 
 
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -12,6 +13,7 @@ import com.example.avdey.recyclertask.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AdapterMocks extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -35,7 +37,7 @@ public class AdapterMocks extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int getItemViewType(int position) {
         if (items.get(position) instanceof Mock) {
             return NUMBER;
-        } else if (items.get(position) instanceof String) {
+        } else if (items.get(position) instanceof Integer) {
             return IMAGE;
         }
 
@@ -58,9 +60,9 @@ public class AdapterMocks extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 View image = inflater.inflate(R.layout.layout_image_mock, parent, false);
                 viewHolder = new ImageMockHolder(image);
                 break;
-            default:
+           /* default:
                 View v = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-                break;
+                break;*/
         }
 
         return viewHolder;
@@ -93,7 +95,7 @@ public class AdapterMocks extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
     private void configureImageMockHolder(ImageMockHolder imageMockHolder, int position) {
-        imageMockHolder.getImageView().setImageResource(R.drawable.second);
+              imageMockHolder.getImageView().setImageResource(R.drawable.first);
 
     }
 
